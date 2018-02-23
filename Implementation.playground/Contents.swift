@@ -113,3 +113,35 @@ numbers
 
 // Begin your implementation below...
 
+// Invoke (use) the function above
+for _ in 1...6 {
+    numbers.append( random(between: 1, and: 20))
+}
+//create a new array
+var sorted : [Int] = []
+
+//Print all the values, from first to last
+for number in numbers {
+    print(number)
+}
+
+//make a loop
+for _ in 1...6 {
+    //find the first lowest
+    var lowestValue = 1
+    var lowestIndex = 0
+    
+    for (index, number) in numbers.enumerated() {
+        if number > lowestValue {
+            lowestValue = number
+            lowestIndex = index
+        }
+    }
+    
+    //move the number to the first index
+    numbers.remove(at: lowestIndex)
+    //insert it into the new array
+    sorted.insert(lowestValue, at: 0)
+    
+}
+
