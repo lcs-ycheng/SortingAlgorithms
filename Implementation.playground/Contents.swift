@@ -117,8 +117,6 @@ numbers
 for _ in 1...6 {
     numbers.append( random(between: 1, and: 20))
 }
-//create a new array
-var sorted : [Int] = []
 
 //Print all the values, from first to last
 for number in numbers {
@@ -127,21 +125,22 @@ for number in numbers {
 
 //make a loop
 for _ in 1...6 {
-    //find the first lowest
-    var lowestValue = 1
-    var lowestIndex = 0
+    //find the first biggest
+var i = 0
+//var lowestIndex = 0
     
-    for (index, number) in numbers.enumerated() {
-        if number > lowestValue {
-            lowestValue = number
-            lowestIndex = index
+ //   for (index, number) in numbers.enumerated() {
+        if numbers[i] > numbers[i+1] {
+            let temporaryPosition = numbers[i]
+            numbers[i] = numbers[i+1]
+            numbers[i+1] = temporaryPosition
         }
-    }
-    
-    //move the number to the first index
-    numbers.remove(at: lowestIndex)
-    //insert it into the new array
-    sorted.insert(lowestValue, at: 0)
-    
+        else if numbers[i] < numbers[i+1] {
+           numbers[i]
+            i += 1
+            }
+        
 }
+//    }
+//    }
 
